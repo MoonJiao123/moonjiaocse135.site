@@ -5,9 +5,12 @@ h1{
     color: #725752;
 }
 h2{
+    color: #384643;
+
+}
+ul{
     color: #96C0B7;
-    margin:10px;
-    padding:10px;
+ 
 }
 p{
     color: #878E88;
@@ -23,27 +26,7 @@ a{
     margin:10px;
     padding:10px;
 }
-.moon{
-    background-color: #FEF6C9;
-    border-radius: 12px;
-    margin-right:250px;
-    padding:10px;
-    width:250px;
-    height:150px;
-    position: absolute; /*or fixed*/
-    right: 0px;
-    
-}
-.homework{
-    background-color: #FEF6C9;
-    border-radius: 12px;
-    
-    margin-left:100px;
-    margin-top:100px;
-    padding:10px;
-    width:800px;
-    height:450px;
-}
+
 .title{
     background-color: #FEF6C9;
     border-radius: 12px;
@@ -52,5 +35,31 @@ a{
     margin:10px;
     padding:10px;
     text-align: center;
+}
+
+.moon{
+    background-color: #FEF6C9;
+    border-radius: 12px;
+    margin-right:250px;
+    padding:10px;
+    margin:10px;
+    width:250px;
+    height:150px;
     
 }
+.inline{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hw{
+    background: #FEF6C9;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow:auto;
+    margin: 20px;
+}
+
+
+
