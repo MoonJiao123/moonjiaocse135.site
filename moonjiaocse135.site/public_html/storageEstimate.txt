@@ -1,0 +1,1 @@
+{"metricName":"storageEstimate","data":{"quota":"96.59","usage":"0.00","caches":null,"indexedDB":null,"serviceWorker":null},"eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}

@@ -445,6 +445,21 @@ function reportPerf(measureName, data, customProperties = {}) {
     });
     // TODO: send payload to endpoint
     console.log(payload);
+    const url = "https://moonjiaocse135.site/api/browsers";
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(res => res.json)
+      .then((res) => {
+        return res
+      }).catch(function (error) {
+        return error
+      })
+
   });
 }
 
@@ -510,7 +525,7 @@ function clear(markName) {
 
 /** 
  * Collect and report errors
- */ 
+ */
 function reportError(error) {
   let payload = {
     name: error.name,
@@ -518,7 +533,7 @@ function reportError(error) {
     url: document.location.href,
     stack: error.stack
   };
-  
+
   reportPerf(`ERROR: ${payload.name}`, payload);
 }
 
@@ -550,15 +565,15 @@ window.onload = () => {
   metricTypes.forEach(metVal => start(metVal));
 
   reportPerf("initialBrowserData", initialBrowserData());
-  
+
   // Let's estimate our storage capacity
   if (WN && WN.storage && typeof WN.storage.estimate === "function") {
     WN.storage.estimate().then(reportStorageEstimate);
   }
-  
+
   metricTypes.forEach(metVal => end(metVal));
 };
 
-window.onerror = function(msg, url, lineNo, columnNo, error){
+window.onerror = function (msg, url, lineNo, columnNo, error) {
   reportError(error);
 }

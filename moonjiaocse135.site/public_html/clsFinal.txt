@@ -1,0 +1,1 @@
+{"metricName":"clsFinal","data":"0.95","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"poor"}
