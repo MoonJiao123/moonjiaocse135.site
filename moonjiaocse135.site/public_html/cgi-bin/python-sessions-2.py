@@ -18,20 +18,14 @@ print ('<html><body>')
 
 cookie = cookies.SimpleCookie()
 string_cookie = os.environ.get('HTTP_COOKIE')
-form = cgi.FieldStorage()
 
 if not string_cookie:
-    if(form):
-        user = form["username"].value
-        cookie['user'] = form["username"].value
-        message = 'name is: '+form["username"].value
-    else:
-        message= "name does not exist"
+    message="user does not exist"
 else:
     cookie.load(string_cookie)
     user = cookie['user'].value
+    cookie['user']['expires'] = 24 * 60 * 60
 
-cookie['user']['expires'] = 24 * 60 * 60
 
 # The shelve module will persist the session data
 # and expose it as a dictionary
@@ -47,9 +41,9 @@ session['lastvisit'] = repr(user)
 
 
 
-print("<h1>Moon tried this - Python Sessions Page 1</h1>")
+print("<h1>Moon tried this - Python Sessions Page 2</h1>")
 print("<p>name is "+user)
-print ("<a href=\"/cgi-bin/php-sessions-2.php\">Session Page 2</a><br/>")
+print ("<a href=\"/cgi-bin/php-sessions-1.php\">Session Page 1</a><br/>")
 print ("<a href=\"/php-form.html\">PHP CGI Form</a><br />")
 print("</body></html>")
 
