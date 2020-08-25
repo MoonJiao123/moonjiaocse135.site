@@ -1,1 +1,2 @@
 {"metricName":"fid","data":"0.81","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}
+{"metricName":"fid","data":"1.14","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}
