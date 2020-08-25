@@ -1,0 +1,1 @@
+{"metricName":"dataConsumption","data":{"beacon":"0.00","css":"0.00","fetch":"0.00","img":"0.00","other":"0.00","script":"0.00","total":"0.00","xmlhttprequest":"0.00"},"eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
