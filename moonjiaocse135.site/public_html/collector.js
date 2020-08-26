@@ -444,7 +444,7 @@ function reportPerf(measureName, data, customProperties = {}) {
       vitalsScore: getVitalsScore(measureName, data),
     });
     // TODO: send payload to endpoint
-    console.log(payload);
+    //console.log(payload);
     const url = "https://moonjiaocse135.site/api/browsers";
     fetch(url, {
       method: 'POST',

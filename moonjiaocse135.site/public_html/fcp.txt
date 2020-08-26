@@ -5,3 +5,4 @@
 {"metricName":"networkInformation","data":"1.13","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
 {"metricName":"fp","data":"1.39","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}
 {"metricName":"fcp","data":"1.46","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}
+{"metricName":"fcp","data":"1.01","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}

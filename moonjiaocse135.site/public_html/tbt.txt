@@ -1,1 +1,3 @@
 {"metricName":"tbt","data":"0.98","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}
+{"metricName":"storageEstimate","data":{"quota":"272.69","usage":"0.00","caches":null,"indexedDB":null,"serviceWorker":null},"eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
+{"metricName":"tbt","data":"1.21","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":"good"}

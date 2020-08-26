@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>CSE 135 database</title>
+  <!--Script Reference[1]-->
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+  <script src="database.js"></script>
+  <script>
+    function getData() {
+      console.log("in getData")
+      const url = "https://moonjiaocse135.site/api/browsers";
+      fetch(url, {
+        method: 'GET',
+      })
+        .then(res => res.json)
+        .then((res) => {
+          console.log("res", res)
+          return res
+        }).catch(function (error) {
+          return error
+        })
+    }
+  </script>
+</head>
+
+<body>
+
+
+  <!-- <zing-grid id='grid' caption="cse135_hw3" data="getData()"></zing-grid> -->
+  <zing-grid src="https://moonjiaocse135.site/api/browsers" editor-controls></zing-grid>
+
+</body>
+
+</html>

@@ -1,2 +1,3 @@
 {"metricName":"navigationTiming","data":"0.51","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
 {"metricName":"navigationTiming","data":"0.70","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
+{"metricName":"navigationTiming","data":"0.71","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}

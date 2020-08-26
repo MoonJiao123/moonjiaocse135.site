@@ -1,1 +1,3 @@
 {"metricName":"networkInformation","data":"0.69","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
+{"metricName":"storageEstimate","data":"0.96","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
+{"metricName":"networkInformation","data":"0.92","eventProperties":{},"navigatorInformation":{"deviceMemory":8,"hardwareConcurrency":4,"serviceWorkerStatus":"supported","isLowEndDevice":true,"isLowEndExperience":true},"vitalsScore":null}
