@@ -1,0 +1,74 @@
+[
+    {
+        "id": 12,
+        "cookieEnabled": 1,
+        "innerHeight": 839,
+        "innerWidth": 794,
+        "language": "en-US",
+        "outerHeight": 959,
+        "outerWidth": 1357
+    },
+    {
+        "id": 13,
+        "cookieEnabled": 1,
+        "innerHeight": 940,
+        "innerWidth": 1498,
+        "language": "en-US",
+        "outerHeight": 1060,
+        "outerWidth": 2061
+    },
+    {
+        "id": 14,
+        "cookieEnabled": 1,
+        "innerHeight": 940,
+        "innerWidth": 1114,
+        "language": "en-US",
+        "outerHeight": 1060,
+        "outerWidth": 2061
+    },
+    {
+        "id": 15,
+        "cookieEnabled": 1,
+        "innerHeight": 1297,
+        "innerWidth": 1549,
+        "language": "en-US",
+        "outerHeight": 1400,
+        "outerWidth": 2560
+    },
+    {
+        "id": 16,
+        "cookieEnabled": 1,
+        "innerHeight": null,
+        "innerWidth": null,
+        "language": null,
+        "outerHeight": null,
+        "outerWidth": null
+    },
+    {
+        "id": 17,
+        "cookieEnabled": 0,
+        "innerHeight": null,
+        "innerWidth": null,
+        "language": null,
+        "outerHeight": null,
+        "outerWidth": null
+    },
+    {
+        "id": 18,
+        "cookieEnabled": 0,
+        "innerHeight": null,
+        "innerWidth": null,
+        "language": null,
+        "outerHeight": null,
+        "outerWidth": null
+    },
+    {
+        "id": 19,
+        "cookieEnabled": 1,
+        "innerHeight": 839,
+        "innerWidth": 794,
+        "language": "en-US",
+        "outerHeight": 959,
+        "outerWidth": 1357
+    }
+]

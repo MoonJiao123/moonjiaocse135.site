@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <title>vis page</title>
+
+
+</head>
+
+<body>
+  <div id="line" class="chart--container"></div>
+  <div id="bar" class="chart--container"></div>
+  <div id="pie" class="chart--container"></div>
+
+  <script>
+    function getData(url) {
+      // const response = await fetch(url,{method: 'GET',});
+
+      // const results = response.json()
+      // // var results = []
+      // // response.forEach(entry => {
+      // //   results.push(entry['data'])
+      // // })
+      // return results
+      fetch(url, {
+        method: 'GET',
+      })
+        .then(res => res.json())
+        // .then(data => {
+        //   const obj = data
+        //   return obj
+        // })
+        .then((res) => {
+          var results = []
+          res.forEach(entry => {
+            results.push(entry['data'])
+          })
+          console.log(results, url)
+          return results
+        }).catch(function (error) {
+          return error
+        })
+    }
+    const url_navigationTiming = "https://moonjiaocse135.site/api/browsers/?filename=navigationTiming";
+    const url_networkInformation = "https://moonjiaocse135.site/api/browsers/?filename=networkInformation";
+    const url_cls = "https://moonjiaocse135.site/api/browsers/?filename=cls";
+    const url_fcp = "https://moonjiaocse135.site/api/browsers/?filename=fcp";
+    const url_lcp = "https://moonjiaocse135.site/api/browsers/?filename=lcp";
+    const url_fp = "https://moonjiaocse135.site/api/browsers/?filename=fp";
+
+    var cls;
+
+    //linechart
+
+    var fcp;
+    var lcp;
+    //bar chart
+    var navigationTiming;
+    var networkInformation;
+    //pie chart
+    var fp;
+
+    fetch(url_cls, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then((res) => {
+        var results = []
+        res.forEach(entry => {
+          results.push(entry['data'])
+        })
+
+        cls = results;
+      }).catch(function (error) {
+        return error
+      })
+
+    fetch(url_fcp, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then((res) => {
+        var results = []
+        res.forEach(entry => {
+          results.push(entry['data'])
+        })
+
+        fcp = results;
+      }).catch(function (error) {
+        return error
+      })
+
+    fetch(url_lcp, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then((res) => {
+        var results = []
+        res.forEach(entry => {
+          results.push(entry['data'])
+        })
+
+        lcp = results;
+      }).catch(function (error) {
+        return error
+      })
+
+    fetch(url_fp, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then((res) => {
+        var results = []
+        res.forEach(entry => {
+          results.push({values: [parseFloat(entry['data'])]})
+        })
+
+        fp = results;
+      }).catch(function (error) {
+        return error
+      })
+
+    fetch(url_navigationTiming, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then((res) => {
+        var results = []
+        res.forEach(entry => {
+          results.push(entry['data'])
+        })
+
+        navigationTiming = results;
+      }).catch(function (error) {
+        return error
+      })
+
+    fetch(url_networkInformation, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then((res) => {
+        var results = []
+        res.forEach(entry => {
+          results.push(entry['data'])
+        })
+
+        networkInformation = results;
+      }).catch(function (error) {
+        return error
+      })
+
+    setTimeout(() => {
+      console.log("cls", cls)
+      console.log("fcp", fcp)
+      console.log("lcp", lcp)
+      console.log("fp", fp)
+      console.log("navigationTiming", navigationTiming)
+      console.log("networkInformation", networkInformation)
+    
+    let lineConfig = {
+      type: 'line',
+      title: {
+        text: '3 series line chart cls, fcp, lcp ',
+        fontSize: 24,
+      },
+      legend: {
+        draggable: true,
+      },
+      scaleX: {
+        // Set scale label
+        label: { text: 'type' },
+
+      },
+      scaleY: {
+        // Scale label with unicode character
+        label: { text: 'data' }
+      },
+      plot: {
+        // Animation docs here:
+        // https://www.zingchart.com/docs/tutorials/styling/animation#effect
+        animation: {
+          effect: 'ANIMATION_EXPAND_BOTTOM',
+          method: 'ANIMATION_STRONG_EASE_OUT',
+          sequence: 'ANIMATION_BY_NODE',
+          speed: 275,
+        }
+      },
+
+      series: [
+        {
+          // Plot 1 values, linear data
+          values: cls,
+          text: 'cls',
+        },
+        {
+          // Plot 2 values, linear data
+          values: fcp,
+          text: 'fcp'
+        },
+        {
+          // Plot 2 values, linear data
+          values: lcp,
+          text: 'lcp'
+        }
+      ]
+    };
+
+    let barConfig = {
+      type: 'bar',
+      title: {
+        text: '2 series bar chart navigationtime, networkinformation ',
+        fontSize: 24,
+      },
+      legend: {
+        draggable: true,
+      },
+      scaleX: {
+        // Set scale label
+        label: { text: 'type' },
+  
+      },
+      scaleY: {
+        // Scale label with unicode character
+        label: { text: 'data' }
+      },
+      plot: {
+        // Animation docs here:
+        // https://www.zingchart.com/docs/tutorials/styling/animation#effect
+        animation: {
+          effect: 'ANIMATION_EXPAND_BOTTOM',
+          method: 'ANIMATION_STRONG_EASE_OUT',
+          sequence: 'ANIMATION_BY_NODE',
+          speed: 275,
+        }
+      },
+
+      series: [
+        {
+          // Plot 1 values, linear data
+          values: navigationTiming,
+          text: 'navigationTiming',
+        },
+        {
+          // Plot 2 values, linear data
+          values: networkInformation,
+          text: 'networkInformation'
+        },
+
+      ]
+    };
+
+    let pieConfig = {
+      type: 'pie3d',
+      title: {
+        text: 'pie chart fp ',
+        fontSize: 24,
+      },
+      legend: {
+        draggable: true,
+      },
+      scaleX: {
+        // Set scale label
+        label: { text: 'type' },
+  
+      },
+      scaleY: {
+        // Scale label with unicode character
+        label: { text: 'data' }
+      },
+      plot: {
+        // Animation docs here:
+        // https://www.zingchart.com/docs/tutorials/styling/animation#effect
+        animation: {
+          effect: 'ANIMATION_EXPAND_BOTTOM',
+          method: 'ANIMATION_STRONG_EASE_OUT',
+          sequence: 'ANIMATION_BY_NODE',
+          speed: 275,
+        }
+      },
+
+      series: fp
+    };
+    // Render Method[3]
+    zingchart.render({
+      id: 'line',
+      data: lineConfig,
+    });
+    zingchart.render({
+      id: 'bar',
+      data: barConfig,
+    });
+    zingchart.render({
+      id: 'pie',
+      data: pieConfig,
+    });
+  }, 1000)
+  </script>
+
+</body>
+
+</html>

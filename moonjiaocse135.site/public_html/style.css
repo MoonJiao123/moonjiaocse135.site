@@ -10,6 +10,8 @@ h2{
 }
 ul{
     color: #96C0B7;
+    margin:10px;
+    padding:10px;
  
 }
 p{
@@ -19,7 +21,8 @@ p{
 }
 li{
     color:#878E88;
-
+    margin:10px;
+    padding:10px;
 }
 a{
     color:#878E88;
@@ -63,3 +66,20 @@ a{
 
 
 
+/* grid */
+zing-grid {
+    background: #eeeeee;
+    font-size: 1.2rem;
+    padding: 10px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, .15);
+    font-family: cursive;
+  }
+  .zg-body {
+    background: #e6e6e6;
+    
+  }
+
+  zing-grid[loading] {
+    height: 100vh;
+  }
+  

@@ -5,10 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+
   <title>CSE 135 database</title>
   <!--Script Reference[1]-->
   <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
-  <script src="database.js"></script>
   <script>
     function getData() {
       console.log("in getData")
@@ -19,7 +20,7 @@
         .then(res => res.json)
         .then((res) => {
           console.log("res", res)
-          return res
+          return res[0]
         }).catch(function (error) {
           return error
         })
@@ -31,7 +32,15 @@
 
 
   <!-- <zing-grid id='grid' caption="cse135_hw3" data="getData()"></zing-grid> -->
-  <zing-grid src="https://moonjiaocse135.site/api/browsers" editor-controls></zing-grid>
+  <!-- <zing-grid className="zing-grid" src="https://moonjiaocse135.site/api/browsers" caption="All Data"editor-controls columns-control
+    draggable layout-controls pager page-size="5" page-size-options="2,4,8,15" search sort>
+  
+  </zing-grid> -->
+  <zing-grid theme="black" search sort pager page-size="5" editor-controls columns-control layout-controls page-size-options="2,4,8,15" caption="All data" >
+    <zg-data  src = "https://moonjiaocse135.site/api/browsers">
+    </zg-data>
+
+  </zing-grid>
 
 </body>
 

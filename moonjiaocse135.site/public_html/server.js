@@ -23,11 +23,34 @@ var mysql = require('mysql');
 server.use(jsonServer.defaults());
 //setup datanbase
 var db = mysql.createConnection({
-    host: 'localhost',
+    host: 'db-mysql-nyc1-18805-do-user-7334883-0.a.db.ondigitalocean.com',
     user: 'moon',
-    password: 'Jy459616',
-    database: 'cse135_hw3'
+    password: 'ethe274ugtav1e59',
+    database: 'cse135_hw3',
+    port: 25060
 })
+db.connect();
+// db.connect(function (err) {
+//     if (err) {
+//         return console.error('error: ' + err.message);
+//     }
+
+//     let createTodos = `CREATE TABLE cse135_hw3.initialBrowserData (id INT NOT NULL AUTO_INCREMENT,userAgent VARCHAR(45) NULL,innerHeight VARCHAR(45) NULL,outerHeight VARCHAR(45) NULL,innerWidth VARCHAR(45) NULL,outerWidthVARCHAR(45) NULL,cookieEnabled VARCHAR(45) NULL,language VARCHAR(45) NULL,vitalsScore VARCHAR(45) NULL,PRIMARY KEY (id),UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE)`;
+
+
+
+//     connection.query(createTodos, function (err, results, fields) {
+//         if (err) {
+//             console.log(err.message);
+//         }
+//     });
+
+//     connection.end(function (err) {
+//         if (err) {
+//             return console.log(err.message);
+//         }
+//     });
+// });
 function getOneFile(filename) {
     var file = filename + '.txt'
     console.log(file)
@@ -85,13 +108,17 @@ server.get('/browsers', jsonParser, async (req, res) => {
         //database
 
     } else {
+        // let rawdata = fs.readFileSync('mock.json');
+        // let data = JSON.parse(rawdata);
+        // res.status(200).json(data)
         allresult = []
-        tables = "SELECT table_name FROM information_schema.tables WHERE table_schema ='cse135_hw3'";
-
+        // tables = "SELECT table_name FROM information_schema.tables WHERE TABLE_TYPE = 'BASE TABLE' AND table_schema ='cse135_hw3'";
+        var tables = "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='cse135_hw3'"
         db.query(tables, function (err, results) {
             if (err) throw err
+            console.log("results are",results)
             results.forEach(table => {
-                db.query('SELECT * FROM ' + table['table_name'], function (err, contents) {
+                db.query('SELECT * FROM ' + table['TABLE_NAME'], function (err, contents) {
                     if (err) throw err
 
                     // contents.forEach(data => {
@@ -141,7 +168,7 @@ server.get('/browsers', jsonParser, async (req, res) => {
 server.post('/browsers', jsonParser, function (req, res) {
     // console.log("body" + req.body)
     if (req.body) {
-        
+
 
         //     filename = req.body['metricName'] + '.txt';
         //     console.log(filename)
@@ -164,7 +191,7 @@ server.post('/browsers', jsonParser, function (req, res) {
 
         if (req.body['metricName'] == 'initialBrowserData') {
             //database
-            let sql = `INSERT INTO ${req.body['metricName']} (metricName,vitalsScore, userAgent,innerHeight,OuterHeight,innterWidth, outerWidth,language, cookieEnabled) VALUES (?)`;
+            let sql = `INSERT INTO ${req.body['metricName']} (metricName,vitalsScore, userAgent,innerHeight,OuterHeight,innerWidth, outerWidth,language, cookieEnabled) VALUES (?)`;
             let values = [
                 req.body.metricName,
                 //typeof (req.body.data) == 'string' ? req.body.data : JSON.stringify(req.body.data),
