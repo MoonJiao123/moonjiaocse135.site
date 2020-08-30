@@ -1,0 +1,85 @@
+body{
+    background: #D4DFC7;
+}
+h1{
+    color: #725752;
+}
+h2{
+    color: #384643;
+
+}
+ul{
+    color: #96C0B7;
+    margin:10px;
+    padding:10px;
+ 
+}
+p{
+    color: #878E88;
+    margin:10px;
+    padding:10px;
+}
+li{
+    color:#878E88;
+    margin:10px;
+    padding:10px;
+}
+a{
+    color:#878E88;
+    margin:10px;
+    padding:10px;
+}
+
+.title{
+    background-color: #FEF6C9;
+    border-radius: 12px;
+    width:250px;
+    height:150px;
+    margin:10px;
+    padding:10px;
+    text-align: center;
+}
+
+.moon{
+    background-color: #FEF6C9;
+    border-radius: 12px;
+    margin-right:250px;
+    padding:10px;
+    margin:10px;
+    width:250px;
+    height:150px;
+    
+}
+.inline{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hw{
+    background: #FEF6C9;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow:auto;
+    margin: 20px;
+}
+
+
+
+/* grid */
+zing-grid {
+    background: #eeeeee;
+    font-size: 1.2rem;
+    padding: 10px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, .15);
+    font-family: cursive;
+  }
+  .zg-body {
+    background: #e6e6e6;
+    
+  }
+
+  zing-grid[loading] {
+    height: 100vh;
+  }
+  
