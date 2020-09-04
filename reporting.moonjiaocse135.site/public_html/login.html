@@ -7,9 +7,30 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
   <title>report login</title>
+  <script>
+    const url = "https://reporting.moonjiaocse135.site/report/check";
+    fetch(url, {
+      method: 'GET',
+      redirect: 'follow'
+    })
+      // .then((res) => res.json)
+      .then((res) => {
+        console.log("status",res.status,res.redirected)
+        
+        if(res.redirected){
+          window.location.href = res.url
+        }
+        if(res.status == 200){
+          return
+        }
+      }).catch(function (error) {
+        return error
+      })
+  </script>
 </head>
 
 <body>
+  
   <h1>User Login</h1>
   <form action="/report/login" method="post">
     <label for="username">username or email:</label><br>
@@ -17,7 +38,7 @@
     <label for="password">password:</label><br>
     <input name="password" type="password" id="password" placeholder="password"><br><br>
     <input type="submit" value="Submit">
-  </form> 
+  </form>
 
 </body>
 

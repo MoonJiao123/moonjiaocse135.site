@@ -6,12 +6,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
-  <title>Report page</title>
+  <title>user report page</title>
+  <script>
+    const url = "https://reporting.moonjiaocse135.site/report/checklogin";
+    fetch(url, {
+      method: 'GET',
+      redirect: 'follow'
+    })
+      // .then((res) => res.json)
+      .then((res) => {
+        console.log("status", res.status, res.redirected)
+
+        if (res.redirected) {
+          window.location.href = res.url
+        }
+        if (res.status == 200) {
+          return
+        }
+      }).catch(function (error) {
+        return error
+      })
+  </script>
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+
 </head>
 
 <body>
-  <h1>This is report page</h1>
-  <h2>Reporting.moonjiaocse135.site</h2>
+  <script>
+    function logout() {
+      const url = "https://reporting.moonjiaocse135.site/report/logout";
+      fetch(url, {
+        method: 'GET',
+      })
+    }
+
+  </script>
+  <h1>This is the user report page</h1>
+
+  <a href="https://reporting.moonjiaocse135.site/logout.html" onclick='return logout()'>logout</a>
+  <a href="https://reporting.moonjiaocse135.site/metricname.html">generate report</a>
+
+  <zing-grid theme="black" search sort pager page-size="5" columns-control layout-controls page-size-options="2,4,8,15"
+    caption="initialBrowserData">
+    <zg-data src="https://reporting.moonjiaocse135.site/report/initialBrowserData">
+    </zg-data>
+
+  </zing-grid>
+
+
+  <div id="navigationTiming"></div>
+  <div id="barchart">
+    <script>
+      let navigationTimingConfig = {
+        type: 'line',
+        title: {
+          text: 'navigationTiming',
+          fontSize: 24,
+        },
+        legend: {
+          draggable: true,
+        },
+        scaleX: {
+          // Set scale label
+          label: { text: 'navigationTiming' },
+        },
+        scaleY: {
+          // Scale label with unicode character
+          label: { text: 'data' }
+        },
+        plot: {
+          // Animation docs here:
+          // https://www.zingchart.com/docs/tutorials/styling/animation#effect
+          animation: {
+            effect: 'ANIMATION_EXPAND_BOTTOM',
+            method: 'ANIMATION_STRONG_EASE_OUT',
+            sequence: 'ANIMATION_BY_NODE',
+            speed: 275,
+          }
+        },
+      };
+      let barchartConfig = {
+        type: 'line',
+        title: {
+          text: 'Page Speed Report',
+          fontSize: 24,
+        },
+        legend: {
+          draggable: true,
+        },
+        scaleX: {
+          // Set scale label
+          label: { text: 'barchart' },
+        },
+        scaleY: {
+          // Scale label with unicode character
+          label: { text: 'data' }
+        },
+        plot: {
+          // Animation docs here:
+          // https://www.zingchart.com/docs/tutorials/styling/animation#effect
+          animation: {
+            effect: 'ANIMATION_EXPAND_BOTTOM',
+            method: 'ANIMATION_STRONG_EASE_OUT',
+            sequence: 'ANIMATION_BY_NODE',
+            speed: 275,
+          }
+        },
+      };
+      function rendernavigationTiming() {
+        var url = "https://reporting.moonjiaocse135.site/report/navigationTiming"
+        fetch(url, {
+          method: 'GET',
+        })
+          .then(res => res.json())
+          .then((res) => {
+            var results = []
+            res.forEach(entry => {
+              results.push(parseFloat(entry['data']))
+            })
+
+            navigationTimingConfig.series = [
+              {
+                // Plot 1 values, linear data
+                values: results,
+                text: 'results',
+              },
+
+            ]
+          }).catch(function (error) {
+            return error
+          }).finally(function () {
+            zingchart.render({
+              id: 'navigationTiming',
+              data: navigationTimingConfig,
+            });
+          }
+          )
+      }
+      function renderbarchart() {
+        var url = "https://reporting.moonjiaocse135.site/report/barchart"
+        fetch(url, {
+          method: 'GET',
+        })
+          .then(res => res.json())
+          .then((res) => {
+            var lcpFinal = []
+            var clsFinal = []
+            var fid = []
+            res[0].forEach(entry => {
+              lcpFinal.push(parseFloat(entry['data']))
+            })
+            res[1].forEach(entry => {
+              clsFinal.push(parseFloat(entry['data']))
+            })
+            res[2].forEach(entry => {
+              fid.push(parseFloat(entry['data']))
+            })
+            barchartConfig.series = [
+              {
+                // Plot 1 values, linear data
+                values: lcpFinal,
+                text: 'lcp',
+              },
+              {
+                // Plot 1 values, linear data
+                values: clsFinal,
+                text: 'clsFinal',
+              },
+              {
+                // Plot 1 values, linear data
+                values: fid,
+                text: 'fid',
+              },
+            ]
+          }).catch(function (error) {
+            return error
+          }).finally(function () {
+            zingchart.render({
+              id: 'barchart',
+              data: barchartConfig,
+            });
+          }
+          )
+      }
+      rendernavigationTiming()
+      renderbarchart()
+    </script>
 
 </body>
 

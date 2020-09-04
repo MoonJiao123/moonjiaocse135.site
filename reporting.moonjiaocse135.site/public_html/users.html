@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <title>CRUD users page</title>
+  <script>
+    const url = "https://reporting.moonjiaocse135.site/report/checklogin";
+    fetch(url, {
+      method: 'GET',
+      redirect: 'follow'
+    })
+      // .then((res) => res.json)
+      .then((res) => {
+        console.log("status", res.status, res.redirected)
+
+        if (res.redirected) {
+          window.location.href = res.url
+        }
+        if (res.status == 200) {
+          return
+        }
+      }).catch(function (error) {
+        return error
+      })
+  </script>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+</head>
+
+<body>
+  <script>
+    function logout() {
+      const url = "https://reporting.moonjiaocse135.site/report/logout";
+      fetch(url, {
+        method: 'GET',
+      })
+    }
+
+  </script>
+  <a href="https://reporting.moonjiaocse135.site/logout.html" onclick='return logout()'>logout</a>
+  <h1>This is CRUD users page</h1>
+  <h2>do CRUD to create,read,update, and delete userss</h2>
+  <h2>note: when add user plz do not put id in, when adding user and deleteing user, might need to refresh to see the resutls</h2>
+  <zing-grid theme="black" search sort pager page-size="5" editor-controls columns-control layout-controls
+    page-size-options="2,4,8,15" caption="users management">
+    <zg-data src="https://reporting.moonjiaocse135.site/report/users">
+    </zg-data>
+
+  </zing-grid>
+
+</body>
+
+</html>

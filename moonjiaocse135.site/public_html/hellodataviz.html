@@ -72,7 +72,7 @@
       .then((res) => {
         var results = []
         res.forEach(entry => {
-          results.push(entry['data'])
+          results.push(parseFloat(entry['data']))
         })
 
         cls = results;
@@ -87,7 +87,7 @@
       .then((res) => {
         var results = []
         res.forEach(entry => {
-          results.push(entry['data'])
+          results.push(parseFloat(entry['data']))
         })
 
         fcp = results;
@@ -102,7 +102,7 @@
       .then((res) => {
         var results = []
         res.forEach(entry => {
-          results.push(entry['data'])
+          results.push(parseFloat(entry['data']))
         })
 
         lcp = results;
@@ -132,7 +132,7 @@
       .then((res) => {
         var results = []
         res.forEach(entry => {
-          results.push(entry['data'])
+          results.push(parseFloat(entry['data']))
         })
 
         navigationTiming = results;
@@ -147,7 +147,7 @@
       .then((res) => {
         var results = []
         res.forEach(entry => {
-          results.push(entry['data'])
+          results.push(parseFloat(entry['data']))
         })
 
         networkInformation = results;
@@ -256,7 +256,7 @@
     };
 
     let pieConfig = {
-      type: 'pie3d',
+      type: 'pie',
       title: {
         text: 'pie chart fp ',
         fontSize: 24,
